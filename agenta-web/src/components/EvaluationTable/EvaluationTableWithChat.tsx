@@ -84,12 +84,18 @@ const EvaluationTableWithChat: React.FC<EvaluationTableWithChatProps> = ({
         {length: columnsCount},
         (_, i) => {
             const columnKey = `column${i}`
+            const appVariantMenuItems = appVariants.map((appVariant, index) => (
+                {
+                    label: (
+                        <>
+                            {appVariant.name}
+                        </>
+                    ),
+                    key: appVariant.name,
+                }
+            ))
             const menu = (
-                <Menu onClick={handleMenuClick(i)}>
-                    {appVariants.map((appVariant, index) => (
-                        <Menu.Item key={appVariant.name}>{appVariant.name}</Menu.Item>
-                    ))}
-                </Menu>
+                <Menu onClick={handleMenuClick(i)} items={appVariantMenuItems}/>
             )
 
             return {
