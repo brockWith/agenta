@@ -205,7 +205,7 @@ const BoxComponent: React.FC<BoxComponentProps> = ({
 const App: React.FC<TestViewProps> = ({inputParams, optParams, variant, isChatVariant}) => {
     const router = useRouter()
     const appId = router.query.app_id as unknown as string
-    const [testList, setTestList] = useState<GenericObject[]>([{}])
+    const [testList, setTestList] = useState<GenericObject[]>([{_id: randString(6)}])
     const [resultsList, setResultsList] = useState<string[]>(testList.map(() => ""))
     const [params, setParams] = useState<Record<string, string> | null>(null)
     const classes = useStylesApp()
